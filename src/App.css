@@ -6,11 +6,19 @@
   overflow: hidden;
 }
 
+.app-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .landing-page {
   position: relative;
   width: 100vw;
   height: 100vh;
   background-color: #f8f8f8;
+   
 }
 
 .background-image {
@@ -34,6 +42,7 @@
   backdrop-filter: blur(4px);
   background-color: rgba(0,0,0,0.5);
   gap: 20px;
+  padding: 50px;
 }
 
 .landing_content {
@@ -50,6 +59,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 10px;
+  
 }
 
 .content p,
@@ -63,7 +73,7 @@
 }
 
 .content p {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .divider {

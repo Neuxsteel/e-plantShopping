@@ -1,9 +1,15 @@
 import React, { useState,useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
+import CardPlant from './components/cardPlant'; 
+
+
+
 function ProductList() {
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
+    const [addedToCart, setAddedToCart] = useState({});
+     
 
     const plantsArray = [
         {
@@ -246,6 +252,44 @@ const handlePlantsClick = (e) => {
     e.preventDefault();
     setShowCart(false);
   };
+
+  const handleAddToCart = (plant) => {
+     
+    setAddedToCart(
+        {
+            ...addedToCart,
+            [plant.name]: plant
+        }
+    )
+      console.log(addedToCart);
+  }
+
+  const style_grid = {
+    display: 'grid',
+    
+    gridTemplateColumns: 'auto auto auto auto',
+    gap: '20px',
+    padding: '20px'
+  };
+
+  const ProductMap = (
+    <>
+      {plantsArray.map((category, index) => {
+        return (
+          <div key={index}>
+            <h2>{category.category}</h2>
+            <div style={style_grid}>
+              {category.plants.map((plant, index) => {
+                return (
+                  <CardPlant plant={plant} key={index} onPress={()=>handleAddToCart(plant) } />
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
+    </>
+  );
     return (
         <div>
              <div className="navbar" style={styleObj}>
@@ -268,8 +312,11 @@ const handlePlantsClick = (e) => {
         </div>
         {!showCart? (
         <div className="product-grid">
-
-
+     
+    
+      
+       
+        { ProductMap }
         </div>
  ) :  (
     <CartItem onContinueShopping={handleContinueShopping}/>
