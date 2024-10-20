@@ -5,5 +5,6 @@ import cartReducer from './CartSlice';
     reducer: {
         cart: cartReducer,
     },
+    
 });
 export default store
