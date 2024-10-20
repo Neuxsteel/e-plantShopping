@@ -36,7 +36,10 @@ const CardPlant = ({ plant, onPress }) => {
       <h3>{plant.name}</h3>
       <p>{plant.description}</p>
       <p>{plant.cost}</p>
-      {addedToCart ? <p>Added to Cart</p> : <button onClick={addedToCartHandle}>Add to Cart</button>}
+      {addedToCart ? <>
+        <p>Added to Cart</p>
+        <button onClick={addedToCartHandle}>Add to Cart</button>
+      </> : <button onClick={addedToCartHandle}>Add to Cart</button>}
     </div>
   );
 };
